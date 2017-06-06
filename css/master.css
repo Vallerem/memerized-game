@@ -1,0 +1,145 @@
+
+/********* General ***************/
+
+.container-fluid {
+    padding: 0;
+}
+
+/********* Intros ***************/
+
+.memerized-game{
+  height:100vh;
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.logo {
+  text-align: center;
+}
+.logo img{
+  margin-top: 60px;
+}
+.btn-startu{
+  color: #ffcc00;
+  background: black;
+  font-size: 50px;
+  margin-top: 95px;
+  padding: 15px 40px;
+  border-radius: 15px;
+  border: solid 5px #ffcc00;
+  -webkit-font-smoothing: antialiased;
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0.5; }
+}
+
+.btn-startu:hover{
+  color: #3D73C1;
+  border: solid 5px #3D73C1;
+  animation: none;
+}
+
+
+
+
+
+
+
+/*********Memerized questions***************/
+
+
+
+/*********The minigame***************/
+
+
+.window p {
+  font-size: 90%;
+  line-height: 25px;
+}
+
+.contain-minigame{
+  background: url("../img/all_memes.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:100vh;
+  padding: 10.3%;
+}
+
+.minigame {
+  border: solid 3px black;
+  width: 350px;
+  margin:auto;
+}
+
+/* Window */
+.window {
+	height: 450px;
+	background: url("../img/background_flop.png");
+	position: relative;
+	overflow: hidden;
+  margin: 0 auto;
+}
+
+
+
+
+
+/* Display the score */
+.score {
+  position: absolute;
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 250%;
+  padding-top: 20px;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 2px 2px 0 #000;
+  z-index: 4;
+}
+
+/* CSS for the bird / image */
+.bird {
+	height: 28px;
+	width: 40px;
+	background: url("../img/bird.png");
+	position: absolute;
+	bottom: 50%;
+	left: 130px;
+	z-index: 3;
+  animation: birdFlap 0.2s steps(3, end) infinite alternate;
+  transition: transform 0.3s;
+}
+
+@keyframes birdFlap {
+  0% {background-position: 0 84px;}
+  100% {background-position: 0 0;}
+}
+
+/* CSS for the Pipes / whatever */
+
+.pipe {
+	width: 60px;
+	height: 100%;
+	position: absolute;
+	right: -60px;;
+}
+
+.topHalf {
+	background: url("../img/pipe.png") bottom;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.bottomHalf {
+	background: url("../img/pipe.png") top;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
