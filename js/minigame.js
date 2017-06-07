@@ -10,35 +10,35 @@ var FloppyGame = function(meme) {
 
  setInterval(function(){
     if(gameState === 1){
-      game.spawnPipe();
-      game.movePipes();
+      this.spawnPipe();
+      this.movePipes();
     }
-  }, 1300);
+  }.bind(this), 1300);
 
   this.birdPosInterval = setInterval(function(){
     if(gameState === 1){
-      game.birdPos();
+      this.birdPos();
     }
-  }, 10);
+  }.bind(this), 10);
 
 	$(".contain-minigame").mousedown(function(){
-		game.birdFlap();
+		this.birdFlap();
     if(gameState === 2){
       gameState = 1;
-      game.deleteInterval();
+      this.deleteInterval();
     }
-	});
+	}.bind(this));
 
 	$(window).keydown(function(e){
 		if(e.keyCode === 32){
 				e.preventDefault();
-			  game.birdFlap()
+			  this.birdFlap()
       if(gameState === 2){
         gameState = 1;
-        game.deleteInterval();
+        this.deleteInterval();
       }
 		}
-	});
+	}.bind(this));
 };
 
 
@@ -55,10 +55,10 @@ FloppyGame.prototype.deleteInterval = function(){
   setTimeout(function(){
     var int= setInterval(function(){
       if(gameState === 1){
-        game.deletePipe();
+        this.deletePipe();
       }
-    }, 1300);
-  }, 2050);
+    }.bind(this), 1300);
+  }.bind(this), 2050);
 };
 
 FloppyGame.prototype.birdFlap = function(){
@@ -67,15 +67,15 @@ FloppyGame.prototype.birdFlap = function(){
     $bird.stop().animate({
       bottom: "+=60px"
     }, 200, function(){
-      game.birdPos();
+      this.birdPos();
       $bird.css('transform', 'rotate(0deg)');
       $bird.stop().animate({
         bottom: "-=60px"
       }, 300, 'linear', function(){
-        game.birdPos();
-        game.gravity();
-      });
-    });
+        this.birdPos();
+        this.gravity();
+      }.bind(this));
+    }.bind(this));
   }
 };
 
@@ -84,8 +84,8 @@ FloppyGame.prototype.gravity = function() {
   birdPercent = parseInt($bird.css('bottom')) / $window.height();
   totalFallTime = fallTime * birdPercent;
   $bird.stop().animate({
-    bottom: '0'
-  }, totalFallTime, 'linear');
+    bottom: "0"
+  }, totalFallTime, "linear");
 
   $bird.css('transform', 'rotate(90deg)');
 };
@@ -116,10 +116,10 @@ FloppyGame.prototype.birdPos = function() {
     this.gameEnd();
   }
 
-  curPipe = $('.pipe:nth-of-type(4)');
+  curPipe = $(".pipe:nth-of-type(4)");
   if(curPipe.length > 0){
-    pipeTop = $('.pipe:nth-of-type(4) .topHalf');
-    pipeBottom = $('.pipe:nth-of-type(4) .bottomHalf');
+    pipeTop = $(".pipe:nth-of-type(4) .topHalf");
+    pipeBottom = $(".pipe:nth-of-type(4) .bottomHalf");
     if(($bird.offset().left + $bird.width()) >= curPipe.offset().left && $bird.offset().left <= (curPipe.offset().left + curPipe.width())){
 
       if($bird.offset().top < (curPipe.offset().top + pipeTop.height()) || ($bird.offset().top + $bird.height()) > ((curPipe.offset().top + pipeTop.height()) + gapHeight)){
@@ -129,7 +129,7 @@ FloppyGame.prototype.birdPos = function() {
       }
     } else if($bird.offset().left >= (curPipe.offset().left + curPipe.width())){
 
-      $('.score').text(curPipe.attr('pipe-id'));
+      $(".score").text(curPipe.attr("pipe-id"));
 
     }
   }
@@ -137,7 +137,7 @@ FloppyGame.prototype.birdPos = function() {
 
 FloppyGame.prototype.gameEnd = function() {
   clearInterval(this.birdPosInterval);
-  $('.pipe').stop();
+  $(".pipe").stop();
   this.gravity();
   gameState = 0;
 	console.log("You have died");

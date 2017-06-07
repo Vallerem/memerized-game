@@ -46,6 +46,25 @@ $(document).ready(function() {
   // });
 
 
+  $(".btn-startu").on("click", function(){
+    $(".memerized-game").addClass("hidden");
+    $(".contain-minigame").removeClass("hidden");
+
+    normalGame = new FloppyGame();
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 });

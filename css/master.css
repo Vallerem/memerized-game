@@ -39,8 +39,8 @@
 }
 
 .btn-startu:hover{
-  color: #3D73C1;
-  border: solid 5px #3D73C1;
+  color: #C5E1FC;
+  border: solid 5px #C5E1FC;
   animation: none;
 }
 
@@ -57,10 +57,6 @@
 /*********The minigame***************/
 
 
-.window p {
-  font-size: 90%;
-  line-height: 25px;
-}
 
 .contain-minigame{
   background: url("../img/all_memes.jpg");
