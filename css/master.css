@@ -52,6 +52,24 @@
 
 /*********Memerized questions***************/
 
+.question-panel{
+  margin: 100px 40px;
+  text-align: center;
+}
+
+.question{
+  font-size: 25px;
+}
+
+.buttons{
+  margin-top: 60px;
+}
+.btn-answer{
+  padding: 15px 20px;
+  font-size: 30px;
+  margin-left: 20px;
+}
+
 
 
 /*********The minigame***************/

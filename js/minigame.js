@@ -1,10 +1,10 @@
 
-var FloppyGame = function(meme) {
+var FloppyGame = function(gap,fall) {
 
+	this.gapSize = gap; //120
+  this.falltime = fall; // 1200
 	$window = $(".window");
 	$bird = $(".bird");
-  fallTime = 1000;
-  gapHeight = 130;
   gameState = 2;
   pipeId = 0;
 
@@ -82,7 +82,7 @@ FloppyGame.prototype.birdFlap = function(){
 FloppyGame.prototype.gravity = function() {
 
   birdPercent = parseInt($bird.css('bottom')) / $window.height();
-  totalFallTime = fallTime * birdPercent;
+  totalFallTime = this.falltime * birdPercent;
   $bird.stop().animate({
     bottom: "0"
   }, totalFallTime, "linear");
@@ -94,7 +94,7 @@ FloppyGame.prototype.spawnPipe = function() {
 
   pipeId++;
   pipeTopHeight = Math.floor(Math.random() * ($window.height() - 250)) + 50;
-  pipeBottomHeight = $window.height() - (pipeTopHeight + gapHeight);
+  pipeBottomHeight = $window.height() - (pipeTopHeight + this.gapSize);
   pipe = '<div class="pipe" pipe-id="' + pipeId + '"><div style="height: ' + pipeTopHeight + 'px" class="topHalf"></div><div style="height:' + pipeBottomHeight + 'px" class="bottomHalf"></div></div>';
   $window.append(pipe);
 };
@@ -122,7 +122,7 @@ FloppyGame.prototype.birdPos = function() {
     pipeBottom = $(".pipe:nth-of-type(4) .bottomHalf");
     if(($bird.offset().left + $bird.width()) >= curPipe.offset().left && $bird.offset().left <= (curPipe.offset().left + curPipe.width())){
 
-      if($bird.offset().top < (curPipe.offset().top + pipeTop.height()) || ($bird.offset().top + $bird.height()) > ((curPipe.offset().top + pipeTop.height()) + gapHeight)){
+      if($bird.offset().top < (curPipe.offset().top + pipeTop.height()) || ($bird.offset().top + $bird.height()) > ((curPipe.offset().top + pipeTop.height()) + this.gapSize)){
 
         this.gameEnd();
 
