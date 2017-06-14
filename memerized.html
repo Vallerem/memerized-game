@@ -22,27 +22,32 @@
 <body>
   <div class="container-fluid">
 
-<!-- INTROS  ----------->
+    <!-- INTROS  ----------->
 
     <div class="memerized-game">
       <div class="row logo">
-        <img src="img/memerized4.png" alt="The memerized logo">
-      <div class="row but">
-        <button type="button" class="btn btn-startu">
-          START!
+        <img class="img-responsive logou" src="img/memerized4.png" alt="The memerized logo">
+        <div class="row but">
+          <button type="button" class="btn btn-startu">
+          START
         </button>
-      </div>
+        </div>
 
       </div>
     </div>
 
-      <!-- OPTIONAL INSTRUCTIONS ----------->
+
+    <!-- OPTIONAL INSTRUCTIONS ----------->
 
 
-<!-- QUESTIONS  ----------->
+
+
+
+    <!-- QUESTIONS  ----------->
+
     <div class="question-panel hidden">
       <div class="row question">
-        <p class="question-perse"> Lore ipsum dolo es quiet ipsum dolo es quiet ipsum dolo es quiet ipsum dolo es quiet ipsum dolo es quiet ipsum dolo es quiet ipsum dolo es quiet ipsum dolo es quiet ipsum dolo es quiet </p>
+        <p class="question-perse"> </p>
       </div>
       <div class="row buttons">
         <button type="button" class="btn btn-answer btn-primary" cosa="true">
@@ -57,34 +62,33 @@
 
 
 
-
-
-
-
-<!-- MINIGAME / MINIGAMES¿?¿?  ----------->
-
-    <div class="contain-minigame hidden">
-      <div class="minigame">
-
-        <div class="window" id="gamed">
-          <p class="score">0</p>
-          <div class="contain-img">
-            <div class="bird"></div>
-          </div>
-          <div class="pipe hidden"></div>
-          <div class="pipe hidden"></div>
-        </div>
-
-      </div>
+    <!-- MINIGAME / MINIGAMES¿?¿?  ----------->
+    <div class="results-container hidden">
+      <p class="current-lives"><span class="actual-lives"></span> lives</p>
+      <p class="current-score">Total Score: <span class="actual-score"></span></p>
+      <button type="button" class="btn btn-success btn-continue">
+       CONTINUE
+      </button>
     </div>
+    <div class="contain-minigame hidden">
+
+      <!-- Generated via javascript -->
+
+    </div>
+
+    <!-- MINIGAME / MINIGAMES¿?¿? Generated via javascript  ----------->
+
+
+
   </div>
-
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/quiz.js"> </script>
-  <script type="text/javascript" src="js/minigame.js"> </script>
-  <script type="text/javascript" src="js/memerized.js"> </script>
+  <script type="text/javascript" src="js/quiz.js">
+  </script>
+  <script type="text/javascript" src="js/minigame.js">
+  </script>
+  <script type="text/javascript" src="js/memerized.js">
+  </script>
 </body>
 
 </html>

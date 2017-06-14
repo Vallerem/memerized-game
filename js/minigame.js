@@ -1,30 +1,34 @@
 
 var FloppyGame = function(gap,fall) {
 
+	var gameCode = '<div class="minigame"><div class="window" id="gamed"><p class="score">0</p><div class="contain-img"><div class="bird"></div></div><div class="pipe hidden"></div><div class="pipe hidden"></div></div></div>'
+
+  $(".contain-minigame").append(gameCode);
+
 	this.gapSize = gap; //120
   this.falltime = fall; // 1200
 	$window = $(".window");
 	$bird = $(".bird");
-  gameState = 2;
+  this.gamestate = 2;
   pipeId = 0;
 
  setInterval(function(){
-    if(gameState === 1){
+    if(this.gamestate === 1){
       this.spawnPipe();
       this.movePipes();
     }
   }.bind(this), 1300);
 
   this.birdPosInterval = setInterval(function(){
-    if(gameState === 1){
+    if(this.gamestate === 1){
       this.birdPos();
     }
   }.bind(this), 10);
 
 	$(".contain-minigame").mousedown(function(){
 		this.birdFlap();
-    if(gameState === 2){
-      gameState = 1;
+    if(this.gamestate === 2){
+      this.gamestate = 1;
       this.deleteInterval();
     }
 	}.bind(this));
@@ -33,28 +37,18 @@ var FloppyGame = function(gap,fall) {
 		if(e.keyCode === 32){
 				e.preventDefault();
 			  this.birdFlap()
-      if(gameState === 2){
-        gameState = 1;
+      if(this.gamestate === 2){
+        this.gamestate = 1;
         this.deleteInterval();
       }
 		}
 	}.bind(this));
 };
 
-
-
-//////////
-
-// FloppyGame.prototype.start = function(){
-//
-//
-// };
-
-
 FloppyGame.prototype.deleteInterval = function(){
   setTimeout(function(){
     var int= setInterval(function(){
-      if(gameState === 1){
+      if(this.gamestate === 1){
         this.deletePipe();
       }
     }.bind(this), 1300);
@@ -62,7 +56,7 @@ FloppyGame.prototype.deleteInterval = function(){
 };
 
 FloppyGame.prototype.birdFlap = function(){
-  if(gameState === 1 || gameState === 2){
+  if(this.gamestate === 1 || this.gamestate === 2){
     $bird.css('transform', 'rotate(-20deg)');
     $bird.stop().animate({
       bottom: "+=60px"
@@ -139,8 +133,18 @@ FloppyGame.prototype.gameEnd = function() {
   clearInterval(this.birdPosInterval);
   $(".pipe").stop();
   this.gravity();
-  gameState = 0;
+  this.gamestate = 0;
 	console.log("You have died");
+	this.showResults();
+};
+
+
+FloppyGame.prototype.showResults = function() {
+	setTimeout(function(){
+	$(".contain-minigame").addClass("hidden");
+	$(".results-container").removeClass("hidden");
+	$(".contain-minigame").empty();
+},1200);
 };
 
 

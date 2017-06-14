@@ -1,6 +1,11 @@
 
-// Set the initial background randomnly
+// Set the main variables that will change during the game
+
 var newQuestion;
+var playerlives = 2;
+var playerScore = 0;
+
+// Set the initial background randomnly
 
 var images = ["img/001.jpg",
   "img/002.jpg",
@@ -47,6 +52,7 @@ $(document).ready(function() {
   //     }, 5000);
   // });
 
+      //On click check answer and start minigame
 
   $(".btn-startu").on("click", function(){
     $(".memerized-game").fadeTo(2000, 0, function() {
@@ -55,12 +61,19 @@ $(document).ready(function() {
       newQuestion = new Quiz(getRandomQuestion());
       });
 
-      $(".btn-answer").on("click", function(){
-        newQuestion.userAnswer = $(this).attr("cosa");
-        console.log(newQuestion.checkUserAnswer());
-      });
+      //Sets the answer as right or worng
 
-    // show the questions pannel and the first question
+  $(".btn-answer").on("click", function(){
+    newQuestion.userAnswer = $(this).attr("cosa");
+    console.log(newQuestion.checkUserAnswer());
+  });
+
+  $(".btn-continue").on("click", function(){
+    $(".results-container").addClass("hidden");
+    $(".question-panel").removeClass("hidden");
+    newQuestion = new Quiz(getRandomQuestion());
+  });
+
 
   });
 
@@ -80,16 +93,5 @@ $(document).ready(function() {
 
 
 
-
-
-
-    // The minigame launches here
-
-  //   $(".contain-minigame").removeClass("hidden");
-  //   $(".contain-minigame").css({"opacity": "0"});
-  //   $(".contain-minigame").fadeTo(1000,1, function() {
-  //       normalGame = new FloppyGame(200,1300);
-  //
-  // });
 
 });

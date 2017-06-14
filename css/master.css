@@ -2,7 +2,8 @@
 /********* General ***************/
 
 .container-fluid {
-    padding: 0;
+  padding: 0;
+  margin: 0;
 }
 
 /********* Intros ***************/
@@ -16,11 +17,20 @@
   background-size: cover;
 }
 
+.logou{
+  margin:auto;
+}
+
 .logo {
+  margin: auto;
   text-align: center;
 }
 .logo img{
   margin-top: 60px;
+}
+
+.but{
+  margin: auto;
 }
 .btn-startu{
   color: #ffcc00;
@@ -100,10 +110,35 @@
 }
 
 
+/* The conitnue + show progress section */
+
+.results-container{
+  background: white;
+  border-radius: 5px;
+  border: 3px solid black;
+  margin-top: 25px;
+  margin: 4em auto;
+  text-align: center;
+  padding: 1em;
+  font-size: 33px;
+  width: 15em;
+}
+
+.current-lives{
+
+}
+
+.current-score{
+
+}
+.btn-continue{
+  font-size: 30px;
+}
 
 
 
-/* Display the score */
+
+/* Display the score in the minigame */
 .score {
   position: absolute;
   width: 100%;
@@ -157,3 +192,9 @@
 	bottom: 0;
 	width: 100%;
 }
+
+/** {
+  background: #000 !important;
+  color: #0f0 !important;
+  outline: solid #f00 1px !important;
+}*/
