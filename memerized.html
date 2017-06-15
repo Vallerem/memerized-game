@@ -21,7 +21,15 @@
 
 <body>
   <div class="container-fluid">
+    <div class="row display-stats hidden">
+      <div class="col-md-6 col-sm-6">
+        LIVES: <span class="player-lives"></span>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        SCORE: <span class="player-score"></span>
+      </div>
 
+    </div>
     <!-- INTROS  ----------->
 
     <div class="memerized-game">
@@ -64,8 +72,7 @@
 
     <!-- MINIGAME / MINIGAMES¿?¿?  ----------->
     <div class="results-container hidden">
-      <p class="current-lives"><span class="actual-lives"></span> lives</p>
-      <p class="current-score">Total Score: <span class="actual-score"></span></p>
+      <p>Your remaining lives: <span class="actual-lives"></span> <br> <br> Are you ready for the next question?</p>
       <button type="button" class="btn btn-success btn-continue">
        CONTINUE
       </button>
@@ -77,8 +84,6 @@
     </div>
 
     <!-- MINIGAME / MINIGAMES¿?¿? Generated via javascript  ----------->
-
-
 
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

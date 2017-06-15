@@ -124,7 +124,6 @@ FloppyGame.prototype.birdPos = function() {
     } else if($bird.offset().left >= (curPipe.offset().left + curPipe.width())){
 
       $(".score").text(curPipe.attr("pipe-id"));
-
     }
   }
 };
@@ -135,7 +134,10 @@ FloppyGame.prototype.gameEnd = function() {
   this.gravity();
   this.gamestate = 0;
 	console.log("You have died");
+	playerScore += parseInt($(".score").text());
 	this.showResults();
+	$(".player-score").text(playerScore);
+	$(".actual-lives").text(playerLives);
 };
 
 

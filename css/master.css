@@ -103,7 +103,8 @@
 /* Window */
 .window {
 	height: 450px;
-	background: url("../img/background_flop.png");
+  background: no-repeat center center fixed url("../img/mountains.png");
+  background-size: cover;
 	position: relative;
 	overflow: hidden;
   margin: 0 auto;
@@ -112,7 +113,7 @@
 
 /* The conitnue + show progress section */
 
-.results-container{
+.results-container, .game-over{
   background: white;
   border-radius: 5px;
   border: 3px solid black;
@@ -123,11 +124,21 @@
   font-size: 33px;
   width: 15em;
 }
+.display-stats{
+  text-align: center;
+  background: transparent;
+  position:relative;
+  top:3em;
+}
+.player-lives{
 
+}
 .current-lives{
 
 }
+.player-score{
 
+}
 .current-score{
 
 }

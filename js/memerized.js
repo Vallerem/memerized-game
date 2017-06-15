@@ -2,10 +2,8 @@
 // Set the main variables that will change during the game
 
 var newQuestion;
-var playerlives = 2;
+var playerLives = 2;
 var playerScore = 0;
-
-// Set the initial background randomnly
 
 var images = ["img/001.jpg",
   "img/002.jpg",
@@ -15,19 +13,21 @@ var images = ["img/001.jpg",
   "img/006.jpg",
 ];
 
-var randomNumber = Math.floor(Math.random() * images.length);
-var bgImg = "url(" + images[randomNumber] + ")";
-
-
-$(".memerized-game").css({
-  "background": bgImg,
-  "background-size": "cover",
-});
-
-
 $(document).ready(function() {
 
+  // Set the initial background randomnly
+  var randomNumber = Math.floor(Math.random() * images.length);
+  var bgImg = "url(" + images[randomNumber] + ")";
 
+
+  $(".memerized-game").css({
+    "background": bgImg,
+    "background-size": "cover",
+  });
+
+  // Display Lives & Score
+  $(".player-lives").text(playerLives);
+  $(".player-score").text(playerScore);
 
   // Optional FadeIn() for the images
 
@@ -58,6 +58,7 @@ $(document).ready(function() {
     $(".memerized-game").fadeTo(2000, 0, function() {
       $(".memerized-game").addClass("hidden");
       $(".question-panel").removeClass("hidden");
+      $(".display-stats").removeClass("hidden");
       newQuestion = new Quiz(getRandomQuestion());
       });
 
