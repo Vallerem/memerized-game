@@ -2,14 +2,14 @@
 var game;
 
 var questionsArr = [{
-    pregunta: "texto de la 1a pregunta",
+    pregunta: "texto de la 1a preguntasdsdsdsdsdsdsdsdsdsdsdsdsdsds",
     certedad: "false"
   },  {
-    pregunta: "texto de la 2a pregunta",
+    pregunta: "texto de la 2a preguntasdsdsdsdsdsdsdsdsd",
     certedad: "true"
    },
   {
-    pregunta: "texto de la 3a pregunta",
+    pregunta: "texto de la 3a preguntasdsdsdsdsdsdsdsdsd",
     certedad: "false"
   },
   //{
@@ -51,7 +51,9 @@ var Quiz = function(question) {
   if (!question) {
     playerGameOver();
     $(".contain-minigame").removeClass("hidden");
+    $(".motivational-quote").css({"font-family":"Helvetica", "font-size": "1em"});
     $(".motivational-quote").text("Wow, we just run out of questions...Congratulations!! You truly know your memes!");
+    $(".show-over").empty();
 
   } else {
     this.question = question.pregunta; // String
@@ -89,12 +91,14 @@ Quiz.prototype.checkUserAnswer = function() {
 /////// Function to display the Game overflow
 
 function playerGameOver(){
+  $(".over-img").removeClass("hidden");
   $(".question-panel").addClass("hidden");
   $(".contain-minigame").append('<div class="game-over"><p class="motivational-quote"></p><button type="button" class="btn btn-play-again">I WANT MOAR</button></div>');
+  $(".motivational-quote").text("Final Score: " + playerScore);
   $(".btn-play-again").on("click",function(event) {
     window.location.reload();
   });
 }
 
-
+/////  UNBIND !!!!!!
 //

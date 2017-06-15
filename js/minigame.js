@@ -9,26 +9,26 @@ var FloppyGame = function(gap,fall) {
   this.falltime = fall; // 1200
 	$window = $(".window");
 	$bird = $(".bird");
-  this.gamestate = 2;
+  this.statusGame = 2;
   pipeId = 0;
 
  setInterval(function(){
-    if(this.gamestate === 1){
-      this.spawnPipe();
-      this.movePipes();
+    if(this.statusGame === 1){
+      this.makePipe();
+      this.movementPipes();
     }
   }.bind(this), 1300);
 
-  this.birdPosInterval = setInterval(function(){
-    if(this.gamestate === 1){
+  this.theBirdInt = setInterval(function(){
+    if(this.statusGame === 1){
       this.birdPos();
     }
   }.bind(this), 10);
 
 	$(".contain-minigame").mousedown(function(){
 		this.birdFlap();
-    if(this.gamestate === 2){
-      this.gamestate = 1;
+    if(this.statusGame === 2){
+      this.statusGame = 1;
       this.deleteInterval();
     }
 	}.bind(this));
@@ -37,8 +37,8 @@ var FloppyGame = function(gap,fall) {
 		if(e.keyCode === 32){
 				e.preventDefault();
 			  this.birdFlap()
-      if(this.gamestate === 2){
-        this.gamestate = 1;
+      if(this.statusGame === 2){
+        this.statusGame = 1;
         this.deleteInterval();
       }
 		}
@@ -48,7 +48,7 @@ var FloppyGame = function(gap,fall) {
 FloppyGame.prototype.deleteInterval = function(){
   setTimeout(function(){
     var int= setInterval(function(){
-      if(this.gamestate === 1){
+      if(this.statusGame === 1){
         this.deletePipe();
       }
     }.bind(this), 1300);
@@ -56,7 +56,7 @@ FloppyGame.prototype.deleteInterval = function(){
 };
 
 FloppyGame.prototype.birdFlap = function(){
-  if(this.gamestate === 1 || this.gamestate === 2){
+  if(this.statusGame === 1 || this.statusGame === 2){
     $bird.css('transform', 'rotate(-20deg)');
     $bird.stop().animate({
       bottom: "+=60px"
@@ -84,7 +84,7 @@ FloppyGame.prototype.gravity = function() {
   $bird.css('transform', 'rotate(90deg)');
 };
 
-FloppyGame.prototype.spawnPipe = function() {
+FloppyGame.prototype.makePipe = function() {
 
   pipeId++;
   pipeTopHeight = Math.floor(Math.random() * ($window.height() - 250)) + 50;
@@ -97,7 +97,7 @@ FloppyGame.prototype.deletePipe = function() {
   $(".pipe").first().remove();
 };
 
-FloppyGame.prototype.movePipes = function() {
+FloppyGame.prototype.movementPipes = function() {
   $(".pipe").each(function(){
     $(this).animate({
       right: "+=160px"
@@ -129,10 +129,10 @@ FloppyGame.prototype.birdPos = function() {
 };
 
 FloppyGame.prototype.gameEnd = function() {
-  clearInterval(this.birdPosInterval);
+  clearInterval(this.theBirdInt);
   $(".pipe").stop();
   this.gravity();
-  this.gamestate = 0;
+  this.statusGame = 0;
 	console.log("You have died");
 	playerScore += parseInt($(".score").text());
 	this.showResults();
