@@ -2,38 +2,49 @@
 var game;
 
 var questionsArr = [{
-    pregunta: "texto de la 1a preguntasdsdsdsdsdsdsdsdsdsdsdsdsdsds",
-    certedad: "false"
-  },  {
-    pregunta: "texto de la 2a preguntasdsdsdsdsdsdsdsdsd",
-    certedad: "true"
+    pregunta: "texto de la 3a preguntasdsdsds  dsdsdsdsdsdpreguntasdsdsdsdsds  dsdsdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds dsdsdsdsdsdspreg untasdsds ds dsdsd sdsdsdsdsds dsdsds",
+    certedad: "false",
+    backgroundQuestion: "url(img/003.jpg)",
+  },
+  {
+    pregunta: "ttexto de la 3a preguntasdsdsds  dsdsdsdsdsdpreguntasdsdsdsdsds  dsdsdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds dsdsdsdsdsdspreg untasdsds ds dsdsd sdsdsdsdsds dsdsds",
+    certedad: "true",
+    backgroundQuestion: "url(img/004.jpg)"
    },
   {
-    pregunta: "texto de la 3a preguntasdsdsdsdsdsdsdsdsd",
-    certedad: "false"
+    pregunta: "texto de la 3a preguntasdsdsds  dsdsdsdsdsdpreguntasdsdsdsdsds  dsdsdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds dsdsdsdsdsdspreg untasdsds ds dsdsd sdsdsdsdsds dsdsds",
+    certedad: "false",
+    backgroundQuestion: "url(img/005.jpg)"
   },
-  //{
-  //   pregunta: "texto de la 4a pregunta",
-  //   certedad: "true"
-  // }, {
-  //   pregunta: "texto de la 5a pregunta",
-  //   certedad: "false"
-  // }, {
-  //   pregunta: "texto de la 6a pregunta",
-  //   certedad: "true"
-  // }, {
-  //   pregunta: "texto de la 7a pregunta",
-  //   certedad: "false"
-  // }, {
-  //   pregunta: "texto de la 8a pregunta",
-  //   certedad: "true"
-  // }, {
-  //   pregunta: "texto de la 9a pregunta",
-  //   certedad: "false"
-  // }, {
-  //   pregunta: "texto de la 10a pregunta",
-  //   certedad: "true"
-  // }
+  {
+    pregunta: "texto de la 4a pregunta",
+    certedad: "true",
+    backgroundQuestion: "url(img/004.jpg)"
+  }, {
+    pregunta: "texto de la 5a pregunta",
+    certedad: "false",
+    backgroundQuestion: "url(img/004.jpg)"
+  }, {
+    pregunta: "texto de la 6a pregunta",
+    certedad: "true",
+    backgroundQuestion: "url(img/004.jpg)"
+  }, {
+    pregunta: "texto de la 7a pregunta",
+    certedad: "false",
+    backgroundQuestion: "url(img/004.jpg)"
+  }, {
+    pregunta: "texto de la 8a pregunta",
+    certedad: "true",
+    backgroundQuestion: "url(img/004.jpg)"
+  }, {
+    pregunta: "texto de la 9a pregunta",
+    certedad: "false",
+    backgroundQuestion: "url(img/004.jpg)"
+  }, {
+    pregunta: "texto de la 10a pregunta",
+    certedad: "true",
+    backgroundQuestion: "url(img/004.jpg)"
+  }
 ];
 
 var getRandomQuestion = function() {
@@ -58,14 +69,23 @@ var Quiz = function(question) {
   } else {
     this.question = question.pregunta; // String
     this.certedad = question.certedad; // Boolean
+    this.backgroundQuestion = question.backgroundQuestion; //background fot the qiuesion
     this.userAnswer = "";
-
+    $(".container-fluid").css({"background": question.backgroundQuestion,
+                                "background-repeat": "no-repeat",
+                                "background-size": "cover",
+                                "height":"100vh",
+                                "height":"100%",
+                                "padding": "10.3%",
+                                "opacity": "1",});
     console.log(this.question);
     console.log(this.certedad);
 
     $(".question-perse").text(this.question);
   }
 };
+
+///// Method that checks the user imput
 
 Quiz.prototype.checkUserAnswer = function() {
   $(".question-panel").addClass("hidden");
@@ -88,7 +108,7 @@ Quiz.prototype.checkUserAnswer = function() {
   }
 };
 
-/////// Function to display the Game overflow
+///// Function to display the Game overflow
 
 function playerGameOver(){
   $(".over-img").removeClass("hidden");
@@ -100,5 +120,5 @@ function playerGameOver(){
   });
 }
 
-/////  UNBIND !!!!!!
+/////  UNBIND !!!!!!??????
 //

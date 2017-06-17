@@ -2,7 +2,7 @@
 // Set the main variables that will change during the game
 
 var newQuestion;
-var playerLives = 2;
+var playerLives = 3;
 var playerScore = 0;
 
 var images = ["img/001.jpg",
@@ -60,6 +60,7 @@ $(document).ready(function() {
       $(".question-panel").removeClass("hidden");
       $(".display-stats").removeClass("hidden");
       newQuestion = new Quiz(getRandomQuestion());
+
       });
 
       //Sets the answer as right or worng

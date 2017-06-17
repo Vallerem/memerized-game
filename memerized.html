@@ -26,19 +26,30 @@
         LIVES: <span class="player-lives"></span>
       </div>
       <div class="col-md-4 col-sm-4 show-over ">
-        <img class="responsive over-img hidden" src="img/overr.png" alt="game opver img" width="150px" height="150px">
+        <img class="responsive over-img hidden" src="img/over-1.png" alt="game opver img" width="150px" height="150px">
       </div>
       <div class="col-md-4 col-sm-4 show-score">
         SCORE: <span class="player-score"></span>
       </div>
 
     </div>
+
     <!-- INTROS  ----------->
 
     <div class="memerized-game">
       <div class="row logo">
         <img class="img-responsive logou" src="img/memerized4.png" alt="The memerized logo">
         <div class="row but">
+          <div class="instructions">
+            <div class="row ins-1">
+              <ul>
+                <li>You'll be asked some cool questions regarding memes.</li>
+                <li>If you answer correctly you'll be rewarded with and easier version of a minigame.</li>
+                <li>If your answer is not correct you'll lose a life and the minigame it's gonna be pretty tough</li>
+                <li>Try to get the highest score!</li>
+              </ul>
+            </div>
+          </div>
           <button type="button" class="btn btn-startu">
           START
         </button>
@@ -51,14 +62,11 @@
     <!-- OPTIONAL INSTRUCTIONS ----------->
 
 
-
-
-
     <!-- QUESTIONS  ----------->
 
     <div class="question-panel hidden">
       <div class="row question">
-        <p class="question-perse"> </p>
+        <div class=" row question-perse"> </div>
       </div>
       <div class="row buttons">
         <button type="button" class="btn btn-answer btn-primary" cosa="true">
@@ -72,7 +80,6 @@
     </div>
 
 
-
     <!-- MINIGAME / MINIGAMES¿?¿?  ----------->
     <div class="results-container hidden">
       <p>Your remaining lives: <span class="actual-lives"></span> <br> <br> Are you ready for the next question?</p>
@@ -83,10 +90,12 @@
     <div class="contain-minigame hidden">
 
       <!-- Generated via javascript -->
-
     </div>
 
     <!-- MINIGAME / MINIGAMES¿?¿? Generated via javascript  ----------->
+
+
+
 
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
