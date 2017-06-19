@@ -138,6 +138,7 @@ FloppyGame.prototype.gameEnd = function() {
 	this.showResults();
 	$(".player-score").text(playerScore);
 	$(".actual-lives").text(playerLives);
+	
 };
 
 

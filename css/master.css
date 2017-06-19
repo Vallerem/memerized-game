@@ -14,6 +14,11 @@
     src: url(../fonts/Frogotype.ttf) format("truetype");
 }
 
+@font-face {
+    font-family: "Pixeled";
+    src: url(../fonts/Pixeled.ttf) format("truetype");
+}
+
 
 /********* General ***************/
 
@@ -24,17 +29,31 @@
 
 /********* Instructions ***************/
 
+ul {
+    width: 60%;
+    margin: auto;
+}
 .instructions{
   font-family: "Frogotype";
-  font-size:2.6em;
+  font-size: 40px;
   text-align: left;
-  margin-left: 4em;
-  color:white;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color:#ffcc66;
+  text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
   overflow-x: hidden;
 }
-ul{
-  list-style-type: none;
+
+ul > li{
+  /*list-style-type: none;*/
+  line-height: 85%;
+  word-wrap:break-word;
+    margin: 0;
+    padding-left: 60px;
+    padding-top: 20px;
+  	list-style: none;
+  	background-image: url("../img/see2.gif-c200");
+  	background-repeat: no-repeat;
+  	background-position: left center;
+  	background-size: 40px;
 }
 
 /********* Intros ***************/
@@ -45,7 +64,7 @@ ul{
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover ;
 }
 
 .logou{
@@ -87,19 +106,25 @@ ul{
 
 
 
-
-
-
-
 /*********Memerized questions***************/
-
+.img-check{
+  margin:auto;
+  overflow: hidden;
+}
+.feedback-answer{
+  margin-top:40px;
+  height: 130px;
+  width: 130px;
+}
 .question-panel{
-  margin: 100px 40px;
+  width:100%;
+  height: 100%;
+  padding-bottom:150px;
+  margin:auto;
   text-align: center;
   color:white;
 }
 .question-perse{
-  word-wrap:break-word;
   text-align: left;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }

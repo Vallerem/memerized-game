@@ -65,16 +65,34 @@ $(document).ready(function() {
 
       //Sets the answer as right or worng
 
+
   $(".btn-answer").on("click", function(){
     newQuestion.userAnswer = $(this).attr("cosa");
-    console.log(newQuestion.checkUserAnswer());
+    newQuestion.checkUserAnswer();
+  });
+
+  $(".btn-answer").one("click",function(event) {
+    $(".btn-answer").unbind("click");
   });
 
   $(".btn-continue").on("click", function(){
     $(".results-container").addClass("hidden");
+    $(".question-panel").empty();
+    $(".question-panel").append('<div class="row question"><div class=" row question-perse"> </div></div><div class="row buttons"><button type="button" class="btn btn-answer btn-primary" cosa="true">TRUE</button><button type="button" class="btn btn-answer btn-danger" cosa="false">FALSE</button></div>');
+    $(".btn-answer").on("click", function(){
+      newQuestion.userAnswer = $(this).attr("cosa");
+      newQuestion.checkUserAnswer();
+    });
+    $(".btn-answer").one("click",function(event) {
+      $(".btn-answer").unbind("click");
+    });
     $(".question-panel").removeClass("hidden");
+    $(".feedback-answer").remove();
     newQuestion = new Quiz(getRandomQuestion());
   });
+
+
+
 
 
   });
