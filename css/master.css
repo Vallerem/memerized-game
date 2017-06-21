@@ -33,13 +33,18 @@ ul {
     width: 60%;
     margin: auto;
 }
+
+.set-ins{
+    margin-right: -60px;
+overflow: hidden;
+}
 .instructions{
   font-family: "Frogotype";
   font-size: 40px;
   text-align: left;
   color:#ffcc66;
   text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
 }
 
 ul > li{
@@ -112,14 +117,12 @@ ul > li{
   overflow: hidden;
 }
 .feedback-answer{
-  margin-top:40px;
-  height: 130px;
-  width: 130px;
+  margin:auto;
 }
 .question-panel{
   width:100%;
   height: 100%;
-  padding-bottom:150px;
+  padding-bottom:180px;
   margin:auto;
   text-align: center;
   color:white;
@@ -154,15 +157,17 @@ ul > li{
   background-repeat: no-repeat;
   background-size: cover;
   height:100%;
-  padding: 10.3%;
+  padding: 3.3%;
   border: solid 3px black;
   border-radius: 30px;
+  margin:auto;
 }
 
 .minigame {
   border: solid 3px black;
   width: 350px;
   margin:auto;
+  margin-top:-14px;
 }
 
 /* Window */
@@ -172,7 +177,7 @@ ul > li{
   background-size: cover;
 	position: relative;
 	overflow: hidden;
-  margin: 0 auto;
+  margin: auto;
 }
 
 
@@ -186,8 +191,20 @@ ul > li{
   margin: 4em auto;
   text-align: center;
   padding: 1em;
-  font-size: 33px;
+  font-size: 30px;
   width: 15em;
+}
+
+.game-over{
+  background: white;
+  border-radius: 5px;
+  border: 3px solid black;
+  margin-top: 25px;
+  margin:1em, auto;
+  text-align: center;
+  padding: 1em;
+  font-size: 30px;
+  width: 16em;
 }
 .display-stats{
   text-align: center;
@@ -290,8 +307,8 @@ font-size: 2em;
 	bottom: 0;
 	width: 100%;
 }
-
-/** {
+/*
+* {
   background: #000 !important;
   color: #0f0 !important;
   outline: solid #f00 1px !important;

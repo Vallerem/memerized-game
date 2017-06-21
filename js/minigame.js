@@ -10,7 +10,7 @@ var FloppyGame = function(gap,fall) {
 	$window = $(".window");
 	$bird = $(".bird");
   this.statusGame = 2;
-  pipeId = 0;
+  numPipe = 0;
 
  setInterval(function(){
     if(this.statusGame === 1){
@@ -21,7 +21,7 @@ var FloppyGame = function(gap,fall) {
 
   this.theBirdInt = setInterval(function(){
     if(this.statusGame === 1){
-      this.birdPos();
+      this.birdWay();
     }
   }.bind(this), 10);
 
@@ -57,16 +57,17 @@ FloppyGame.prototype.deleteInterval = function(){
 
 FloppyGame.prototype.birdFlap = function(){
   if(this.statusGame === 1 || this.statusGame === 2){
+		wing.play();
     $bird.css('transform', 'rotate(-20deg)');
     $bird.stop().animate({
       bottom: "+=60px"
     }, 200, function(){
-      this.birdPos();
+      this.birdWay();
       $bird.css('transform', 'rotate(0deg)');
       $bird.stop().animate({
         bottom: "-=60px"
       }, 300, 'linear', function(){
-        this.birdPos();
+        this.birdWay();
         this.gravity();
       }.bind(this));
     }.bind(this));
@@ -75,8 +76,8 @@ FloppyGame.prototype.birdFlap = function(){
 
 FloppyGame.prototype.gravity = function() {
 
-  birdPercent = parseInt($bird.css('bottom')) / $window.height();
-  totalFallTime = this.falltime * birdPercent;
+  meausurePercen = parseInt($bird.css('bottom')) / $window.height();
+  totalFallTime = this.falltime * meausurePercen;
   $bird.stop().animate({
     bottom: "0"
   }, totalFallTime, "linear");
@@ -86,10 +87,10 @@ FloppyGame.prototype.gravity = function() {
 
 FloppyGame.prototype.makePipe = function() {
 
-  pipeId++;
-  pipeTopHeight = Math.floor(Math.random() * ($window.height() - 250)) + 50;
-  pipeBottomHeight = $window.height() - (pipeTopHeight + this.gapSize);
-  pipe = '<div class="pipe" pipe-id="' + pipeId + '"><div style="height: ' + pipeTopHeight + 'px" class="topHalf"></div><div style="height:' + pipeBottomHeight + 'px" class="bottomHalf"></div></div>';
+  numPipe++;
+  topPipe = Math.floor(Math.random() * ($window.height() - 250)) + 50;
+  heightBotPipe = $window.height() - (topPipe + this.gapSize);
+  pipe = '<div class="pipe" pipe-id="' + numPipe + '"><div style="height: ' + topPipe + 'px" class="topHalf"></div><div style="height:' + heightBotPipe + 'px" class="bottomHalf"></div></div>';
   $window.append(pipe);
 };
 
@@ -105,7 +106,7 @@ FloppyGame.prototype.movementPipes = function() {
   });
 };
 
-FloppyGame.prototype.birdPos = function() {
+FloppyGame.prototype.birdWay = function() {
   if(parseInt($bird.css("bottom")) === 0 || parseInt($bird.css("bottom")) > 450){
     this.gameEnd();
   }
@@ -117,12 +118,12 @@ FloppyGame.prototype.birdPos = function() {
     if(($bird.offset().left + $bird.width()) >= curPipe.offset().left && $bird.offset().left <= (curPipe.offset().left + curPipe.width())){
 
       if($bird.offset().top < (curPipe.offset().top + pipeTop.height()) || ($bird.offset().top + $bird.height()) > ((curPipe.offset().top + pipeTop.height()) + this.gapSize)){
-
+				hit.play();
         this.gameEnd();
 
       }
     } else if($bird.offset().left >= (curPipe.offset().left + curPipe.width())){
-
+			point.play();
       $(".score").text(curPipe.attr("pipe-id"));
     }
   }
@@ -130,6 +131,9 @@ FloppyGame.prototype.birdPos = function() {
 
 FloppyGame.prototype.gameEnd = function() {
   clearInterval(this.theBirdInt);
+	setTimeout(function(){
+		die.play();
+	},200);
   $(".pipe").stop();
   this.gravity();
   this.statusGame = 0;
@@ -138,7 +142,7 @@ FloppyGame.prototype.gameEnd = function() {
 	this.showResults();
 	$(".player-score").text(playerScore);
 	$(".actual-lives").text(playerLives);
-	
+
 };
 
 
@@ -149,7 +153,3 @@ FloppyGame.prototype.showResults = function() {
 	$(".contain-minigame").empty();
 },1200);
 };
-
-
-
-// var game = new FloppyGame();

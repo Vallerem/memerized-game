@@ -1,3 +1,38 @@
+
+//Sounds
+
+var correct = new buzz.sound("sounds/correct", {
+    formats: ["mp3"]
+});
+
+var wrong = new buzz.sound("sounds/wrong", {
+    formats: [ "mp3"]
+});
+
+var fail = new buzz.sound("sounds/fail", {
+    formats: ["mp3"]
+});
+
+var clap = new buzz.sound("sounds/clap", {
+    formats: ["mp3"]
+});
+
+var wing = new buzz.sound("sounds/sfx_wing", {
+    formats: ["wav"]
+});
+
+var point = new buzz.sound("sounds/sfx_point", {
+    formats: ["wav"]
+});
+
+var hit = new buzz.sound("sounds/sfx_hit", {
+    formats: ["wav"]
+});
+
+var die = new buzz.sound("sounds/sfx_die", {
+    formats: ["wav"]
+});
+
 //Make the Questions (just strings)
 var game;
 
@@ -60,8 +95,10 @@ var getRandomQuestion = function() {
 
 var Quiz = function(question) {
   if (!question) {
+    clap.play();
     playerGameOver();
     $(".contain-minigame").removeClass("hidden");
+    $(".game-over").append('<a href="https://rickrolled.fr/" class="btn btn-primary btn-prize">Get your prize!</a>');
     $(".motivational-quote").css({"font-family":"Helvetica", "font-size": "1em"});
     $(".motivational-quote").text("Wow, we just run out of questions...Congratulations!! You truly know your memes!");
     $(".show-over").empty();
@@ -75,7 +112,6 @@ var Quiz = function(question) {
                                 "background-repeat": "no-repeat",
                                 "background-size": "cover",
                                 "height":"100vh",
-                                "height":"100%",
                                 "padding": "10.3%",
                                 "opacity": "1",});
     console.log(this.question);
@@ -89,7 +125,10 @@ var Quiz = function(question) {
 
 Quiz.prototype.checkUserAnswer = function() {
   if (this.userAnswer === this.certedad) {
-    $(".question-panel").append('<div class="row img-check"><img class="feedback-answer" src="img/checked.png"/></div>');
+    correct.play();
+    $(".question-panel").empty();
+    $(".question-panel").append('<div class="row img-check"><img class="feedback-answer" src="img/checked2.png"/></div>');
+    $("feedback-answer").css({"padding":"120em;"});
     setTimeout(function(){
       $(".question-panel").addClass("hidden");
       $(".contain-minigame").removeClass("hidden");
@@ -98,7 +137,10 @@ Quiz.prototype.checkUserAnswer = function() {
   },1000);
 
   } else {
-    $(".question-panel").append('<div class="row img-check"><img class="feedback-answer" src="img/unchecked.png"/></div>');
+    wrong.play();
+    $(".question-panel").empty();
+    $(".question-panel").append('<div class="row img-check"><img class="feedback-answer" src="img/unchecked2.png"/></div>');
+    $("feedback-answer").css({"padding-bottom":"120em;"});
     setTimeout(function(){
       $(".question-panel").addClass("hidden");
       $(".contain-minigame").removeClass("hidden");
@@ -106,8 +148,10 @@ Quiz.prototype.checkUserAnswer = function() {
       $(".player-lives").text(playerLives);
       $(".actual-lives").text(playerLives);
       if (playerLives === 0){
-         return playerGameOver();
+        fail.play();
+        return playerGameOver();
       }
+
       game = new FloppyGame(115, 900);
       $(".window").css(
         {"background":"no-repeat center center fixed url('img/fire.gif')",
