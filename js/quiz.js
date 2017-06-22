@@ -47,39 +47,40 @@ var questionsArr = [{
     backgroundQuestion: "url(img/trollface.jpg)"
    },
   {
-    pregunta: "texto de la 3a preguntasdsdsds  dsdsdsdsdsdpreguntasdsdsdsdsds  dsdsdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds dsdsdsdsdsdspreg untasdsds ds dsdsd sdsdsdsdsds dsdsds",
+    pregunta: "Longcat's, original name is Shirubi (白い – 'white' in Japanese)",
     certedad: "false",
-    backgroundQuestion: "url(img/005.jpg)"
+    backgroundQuestion: "url(img/longcat.jpg)"
   },
-  {
-    pregunta: "texto de la 3a preguntasdsdsds  dsdsds dsds dpr eguntasdsdsdsdsds  dsd sdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds ds dsdsdsdsdspreg untasdsd s ds dsdsd sdsdsd sdsds dsdsds",
-    certedad: "true",
-    backgroundQuestion: "url(img/004.jpg)"
-  }, {
-    pregunta: "texto de la 3a preguntasdsdsds  dsdsds dsds dpr eguntasdsdsdsdsds  dsd sdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds ds dsdsdsdsdspreg untasdsd s ds dsdsd sdsdsd sdsds dsdsds",
-    certedad: "false",
-    backgroundQuestion: "url(img/004.jpg)"
-  }, {
-    pregunta: "texto de la 3a preguntasdsdsds  dsdsds dsds dpr eguntasdsdsdsdsds  dsd sdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds ds dsdsdsdsdspreg untasdsd s ds dsdsd sdsdsd sdsds dsdsds",
-    certedad: "true",
-    backgroundQuestion: "url(img/004.jpg)"
-  }, {
-    pregunta: "texto de la 3a preguntasdsdsds  dsdsds dsds dpr eguntasdsdsdsdsds  dsd sdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds ds dsdsdsdsdspreg untasdsd s ds dsdsd sdsdsd sdsds dsdsds",
-    certedad: "false",
-    backgroundQuestion: "url(img/004.jpg)"
-  }, {
-    pregunta: "texto de la 3a preguntasdsdsds  dsdsds dsds dpr eguntasdsdsdsdsds  dsd sdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds ds dsdsdsdsdspreg untasdsd s ds dsdsd sdsdsd sdsds dsdsds",
-    certedad: "true",
-    backgroundQuestion: "url(img/004.jpg)"
-  }, {
-    pregunta: "texto de la 3a preguntasdsdsds  dsdsds dsds dpr eguntasdsdsdsdsds  dsd sdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds ds dsdsdsdsdspreg untasdsd s ds dsdsd sdsdsd sdsds dsdsds",
-    certedad: "false",
-    backgroundQuestion: "url(img/004.jpg)"
-  }, {
-    pregunta: "texto de la 3a preguntasdsdsds  dsdsds dsds dpr eguntasdsdsdsdsds  dsd sdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds ds dsdsdsdsdspreg untasdsd s ds dsdsd sdsdsd sdsds dsdsds",
-    certedad: "true",
-    backgroundQuestion: "url(img/004.jpg)"
-  }
+  // {
+  //   pregunta: "texto de la 3a preguntasdsdsds  dsdsds dsds dpr eguntasdsdsdsdsds  dsd sdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds ds dsdsdsdsdspreg untasdsd s ds dsdsd sdsdsd sdsds dsdsds",
+  //   certedad: "true",
+  //   backgroundQuestion: "url(img/004.jpg)"
+  // },
+  // {
+  //   pregunta: "texto de la 3a preguntasdsdsds  dsdsds dsds dpr eguntasdsdsdsdsds  dsd sdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds ds dsdsdsdsdspreg untasdsd s ds dsdsd sdsdsd sdsds dsdsds",
+  //   certedad: "false",
+  //   backgroundQuestion: "url(img/004.jpg)"
+  // }, {
+  //   pregunta: "texto de la 3a preguntasdsdsds  dsdsds dsds dpr eguntasdsdsdsdsds  dsd sdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds ds dsdsdsdsdspreg untasdsd s ds dsdsd sdsdsd sdsds dsdsds",
+  //   certedad: "true",
+  //   backgroundQuestion: "url(img/004.jpg)"
+  // }, {
+  //   pregunta: "texto de la 3a preguntasdsdsds  dsdsds dsds dpr eguntasdsdsdsdsds  dsd sdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds ds dsdsdsdsdspreg untasdsd s ds dsdsd sdsdsd sdsds dsdsds",
+  //   certedad: "false",
+  //   backgroundQuestion: "url(img/004.jpg)"
+  // }, {
+  //   pregunta: "texto de la 3a preguntasdsdsds  dsdsds dsds dpr eguntasdsdsdsdsds  dsd sdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds ds dsdsdsdsdspreg untasdsd s ds dsdsd sdsdsd sdsds dsdsds",
+  //   certedad: "true",
+  //   backgroundQuestion: "url(img/004.jpg)"
+  // }, {
+  //   pregunta: "texto de la 3a preguntasdsdsds  dsdsds dsds dpr eguntasdsdsdsdsds  dsd sdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds ds dsdsdsdsdspreg untasdsd s ds dsdsd sdsdsd sdsds dsdsds",
+  //   certedad: "false",
+  //   backgroundQuestion: "url(img/004.jpg)"
+  // }, {
+  //   pregunta: "texto de la 3a preguntasdsdsds  dsdsds dsds dpr eguntasdsdsdsdsds  dsd sdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds ds dsdsdsdsdspreg untasdsd s ds dsdsd sdsdsd sdsds dsdsds",
+  //   certedad: "true",
+  //   backgroundQuestion: "url(img/004.jpg)"
+  //}
 ];
 
 var getRandomQuestion = function() {
@@ -118,6 +119,7 @@ var Quiz = function(question) {
     console.log(this.certedad);
 
     $(".question-perse").text(this.question);
+    // $(".question-perse").css({"color":"blue"});
   }
 };
 
@@ -169,6 +171,8 @@ function playerGameOver(){
   $(".contain-minigame").append('<div class="game-over"><p class="motivational-quote"></p><button type="button" class="btn btn-play-again">Play Again</button></div>');
   $(".motivational-quote").text("Final Score: " + playerScore);
   $(".btn-play-again").on("click",function(event) {
+    newQuestion = null;
+    game = null;
     window.location.reload();
   });
 }

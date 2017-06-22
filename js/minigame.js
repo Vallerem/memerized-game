@@ -12,7 +12,7 @@ var FloppyGame = function(gap,fall) {
   this.statusGame = 2;
   numPipe = 0;
 
- setInterval(function(){
+  this.nao = setInterval(function(){
     if(this.statusGame === 1){
       this.makePipe();
       this.movementPipes();
@@ -130,6 +130,7 @@ FloppyGame.prototype.birdWay = function() {
 };
 
 FloppyGame.prototype.gameEnd = function() {
+	clearInterval(this.nao);
   clearInterval(this.theBirdInt);
 	setTimeout(function(){
 		die.play();
