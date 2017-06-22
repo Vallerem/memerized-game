@@ -154,10 +154,11 @@ Quiz.prototype.checkUserAnswer = function() {
         fail.play();
         return playerGameOver();
       }
+         game = new FloppyGame(115, 900);
       $(".window").css(
         {"background":"no-repeat center center fixed url('img/fire.gif')",
          "background-size": "cover",});
-         game = new FloppyGame(115, 900);
+
       return "You are pretty pretty wrong";
     },1000);
   }
