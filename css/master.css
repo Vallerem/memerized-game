@@ -39,6 +39,7 @@ ul {
 overflow: hidden;
 }
 .instructions{
+  margin-top: 1.1em;
   font-family: "Frogotype";
   font-size: 40px;
   text-align: left;
@@ -73,6 +74,7 @@ ul > li{
 }
 
 .logou{
+  padding-top:3em;
   margin:auto;
 }
 
