@@ -37,14 +37,14 @@ var die = new buzz.sound("sounds/sfx_die", {
 var game;
 
 var questionsArr = [{
-    pregunta: "texto de la 3a preguntasdsdsds  dsdsds dsds dpr eguntasdsdsdsdsds  dsd sdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds ds dsdsdsdsdspreg untasdsd s ds dsdsd sdsdsd sdsds dsdsds",
+    pregunta: "Pepe the Frog is a blue frog from the comic series Boy’s Club by Matt Furie.",
     certedad: "false",
-    backgroundQuestion: "url(img/003.jpg)",
+    backgroundQuestion: "url(img/pepe.png)",
   },
   {
-    pregunta: "ttexto de la 3a preguntasdsdsds  dsdsdsdsdsdpreguntasdsdsdsdsds  dsdsdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds dsdsdsdsdsdspreg untasdsds ds dsdsd sdsdsdsdsds dsdsds",
+    pregunta: "The Trollface was originally drawn by Carlos Ramirez, an Oakland-based artist known by his deviantART",
     certedad: "true",
-    backgroundQuestion: "url(img/004.jpg)"
+    backgroundQuestion: "url(img/trollface.jpg)"
    },
   {
     pregunta: "texto de la 3a preguntasdsdsds  dsdsdsdsdsdpreguntasdsdsdsdsds  dsdsdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds dsdsdsdsdsdspreg untasdsds ds dsdsd sdsdsdsdsds dsdsds",
