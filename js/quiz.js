@@ -42,25 +42,26 @@ var questionsArr = [{
     backgroundQuestion: "url(img/pepe.png)",
   },
   {
-    pregunta: "The Trollface was originally drawn by Carlos Ramirez, an Oakland-based artist known by his deviantART",
+    pregunta: "The Trollface was originally drawn by Carlos Ramirez, an Oakland-based artist known by his deviantART.",
     certedad: "true",
     backgroundQuestion: "url(img/trollface.jpg)"
    },
   {
-    pregunta: "Longcat's, original name is Shirubi (白い – 'white' in Japanese)",
+    pregunta: "Longcat's, original name is Shirubi (白い – 'white' in Japanese).",
     certedad: "false",
     backgroundQuestion: "url(img/longcat.jpg)"
   },
-  // {
-  //   pregunta: "texto de la 3a preguntasdsdsds  dsdsds dsds dpr eguntasdsdsdsdsds  dsd sdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds ds dsdsdsdsdspreg untasdsd s ds dsdsd sdsdsd sdsds dsdsds",
-  //   certedad: "true",
-  //   backgroundQuestion: "url(img/004.jpg)"
-  // },
-  // {
-  //   pregunta: "texto de la 3a preguntasdsdsds  dsdsds dsds dpr eguntasdsdsdsdsds  dsd sdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds ds dsdsdsdsdspreg untasdsd s ds dsdsd sdsdsd sdsds dsdsds",
-  //   certedad: "false",
-  //   backgroundQuestion: "url(img/004.jpg)"
-  // }, {
+  {
+    pregunta: "Forever Alone is considered one of the first major rage comic spin-off characters to be creater after the original Rage Guy.",
+    certedad: "true",
+    backgroundQuestion: "url(img/alone.jpg)"
+  },
+  {
+    pregunta: "Windows phone it's on itself a meme.",
+    certedad: "false",
+    backgroundQuestion: "url(img/windows.png)"
+  },
+  //{
   //   pregunta: "texto de la 3a preguntasdsdsds  dsdsds dsds dpr eguntasdsdsdsdsds  dsd sdsdsd sdsdsdsd spreguntasdsdsd sdsdsdsdsdsdsdsdsdsdsds ds dsdsdsdsdspreg untasdsd s ds dsdsd sdsdsd sdsds dsdsds",
   //   certedad: "true",
   //   backgroundQuestion: "url(img/004.jpg)"
@@ -115,8 +116,8 @@ var Quiz = function(question) {
                                 "height":"100vh",
                                 "padding": "10.3%",
                                 "opacity": "1",});
-    console.log(this.question);
-    console.log(this.certedad);
+    // console.log(this.question);
+    // console.log(this.certedad);
 
     $(".question-perse").text(this.question);
     // $(".question-perse").css({"color":"blue"});
@@ -153,11 +154,10 @@ Quiz.prototype.checkUserAnswer = function() {
         fail.play();
         return playerGameOver();
       }
-
-      game = new FloppyGame(115, 900);
       $(".window").css(
         {"background":"no-repeat center center fixed url('img/fire.gif')",
          "background-size": "cover",});
+         game = new FloppyGame(115, 900);
       return "You are pretty pretty wrong";
     },1000);
   }

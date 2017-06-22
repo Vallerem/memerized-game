@@ -138,7 +138,7 @@ FloppyGame.prototype.gameEnd = function() {
   $(".pipe").stop();
   this.gravity();
   this.statusGame = 0;
-	console.log("You have died");
+	// console.log("You have died");
 	playerScore += parseInt($(".score").text());
 	this.showResults();
 	$(".player-score").text(playerScore);
